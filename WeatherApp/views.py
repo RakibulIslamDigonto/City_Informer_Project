@@ -26,7 +26,6 @@ class WeatherView(TemplateView):
             URL = 'http://api.openweathermap.org/data/2.5/weather'
             PARAMS = {'q':city,'appid':appid, 'units':'metric' }
             
-            
             resp = requests.get(url=URL, params=PARAMS)
             converted_json = resp.json()
             print(converted_json)
@@ -49,7 +48,6 @@ class WeatherView(TemplateView):
                     'msg':msg,
                     'form':form
                 }
-
         return render(request, self.template_name,context)
 
 
