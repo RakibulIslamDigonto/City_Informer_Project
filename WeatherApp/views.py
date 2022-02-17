@@ -28,7 +28,6 @@ class WeatherView(TemplateView):
             
             resp = requests.get(url=URL, params=PARAMS)
             converted_json = resp.json()
-            print(converted_json)
             if converted_json['cod']==200:
                 weather_info = converted_json['weather'][0]['description']
                 icon = converted_json['weather'][0]['icon']
