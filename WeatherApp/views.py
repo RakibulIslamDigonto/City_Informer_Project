@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 import requests
 from .forms import WeatherForm
+from django.conf import settings
 
 
 # Create your views here.
@@ -22,7 +23,7 @@ class WeatherView(TemplateView):
 
         if form.is_valid():
             city = form.cleaned_data['city']
-            appid='f54accc5476dfda8ffb023e84391a2fe'
+            appid=settings.WEATHER_API_KEY
             URL = 'http://api.openweathermap.org/data/2.5/weather'
             PARAMS = {'q':city,'appid':appid, 'units':'metric' }
             
